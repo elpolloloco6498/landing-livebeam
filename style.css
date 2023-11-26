@@ -170,7 +170,13 @@ html {
 }
 
 .container-showcase-image img {
-  width: 60%;
+  width: 70%;
+  border-radius: 20px;
+}
+
+.plane-image {
+  width: 80%;
+  margin: auto;
 }
 
 .displays {
@@ -189,10 +195,10 @@ html {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px 0 20px;
-  height: 400px; /* Set your fixed height for the container */
+  height: 800px; /* Set your fixed height for the container */
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(2, 1fr);
+  grid-template-rows: repeat(3, 1fr);
   gap: 10px; /* Adjust the gap between grid items */
 }
 
@@ -200,7 +206,7 @@ html {
   position: relative;
   overflow: hidden;
   background-color: #ddd;
-  border: 1px solid #ccc;
+  border: none;
   box-sizing: border-box;
 }
 
@@ -217,7 +223,7 @@ html {
 }
 
 .display-info {
-  color: black;
+  color: var(--light-color);
   position: absolute;
   bottom: 10px;
   left: 10px;
@@ -375,7 +381,7 @@ textarea {
 
   .container-displays {
     grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(3, 1fr);
+    grid-template-rows: repeat(4, 1fr);
     gap: 5px; /* Adjust the gap between grid items */
   }
 

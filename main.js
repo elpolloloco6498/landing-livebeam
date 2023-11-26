@@ -67,13 +67,13 @@ window.addEventListener('scroll', function () {
 
     // Determine which image to show based on scroll position
     if (scrollPosition < 2*windowHeight) {
-      scrollImage.src = "https://dummyimage.com/600x600&text=placeholder1";
+      scrollImage.src = "./assets/location_without_logo.png";
       console.log("image 1")
     } else if (scrollPosition >= 2*windowHeight && scrollPosition < 3*windowHeight) {
-      scrollImage.src = "https://dummyimage.com/600x600&text=placeholder2";
+      scrollImage.src = "./assets/logo.png";
       console.log("image 2")
     } else if (scrollPosition >= 3*windowHeight) {
-      scrollImage.src = "https://dummyimage.com/600x600&text=placeholder3";
+      scrollImage.src = "./assets/location_with_logo.png";
       console.log("image 3")
     }
     // Add more conditions for additional scroll positions as needed
