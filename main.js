@@ -1,7 +1,20 @@
 import { gsap } from "gsap";
     
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import locationWithoutLogo from "./assets/location_without_logo.png";
+import locationWithLogo from "./assets/location_with_logo.png";
+import logo from "./assets/logo.png";
 
+function scroll() {
+  window.scroll({
+    top: windowHeight,
+    left: 0,
+    behavior: "smooth",
+  });
+}
+
+let btnScroll = document.querySelector(".btn-scroll");
+btnScroll.addEventListener("click", scroll);
 
 gsap.registerPlugin(ScrollTrigger);
 console.log("Plugin loaded")
@@ -16,9 +29,21 @@ gsap.to("#app", {
     },
   });
 
+gsap.to(".btn-scroll", {
+  scrollTrigger: {
+    trigger: ".container-showcase-info-1",
+    start: "top center",
+    end: "center bottom",
+    toggleActions: "reverse"
+},
+  opacity: 0,
+  ease: "power1.out",
+});
+
 gsap.from(".hero-title", {
-  x: "-100%",
-  duration: 2,
+  y: "50%",
+  duration: 1,
+  opacity: 0,
   ease: "power1.out",
 });
 
@@ -67,14 +92,11 @@ window.addEventListener('scroll', function () {
 
     // Determine which image to show based on scroll position
     if (scrollPosition < 2*windowHeight) {
-      scrollImage.src = "./assets/location_without_logo.png";
-      console.log("image 1")
+      scrollImage.src = locationWithoutLogo;
     } else if (scrollPosition >= 2*windowHeight && scrollPosition < 3*windowHeight) {
-      scrollImage.src = "./assets/logo.png";
-      console.log("image 2")
+      scrollImage.src = logo;
     } else if (scrollPosition >= 3*windowHeight) {
-      scrollImage.src = "./assets/location_with_logo.png";
-      console.log("image 3")
+      scrollImage.src = locationWithLogo;
     }
     // Add more conditions for additional scroll positions as needed
   });

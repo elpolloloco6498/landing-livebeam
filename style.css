@@ -4,19 +4,20 @@
 @tailwind utilities;
 
 :root {
-  --dark-color: #0F1926;
-  --medium-color: #344A68;
-  --light-color: #BCE3FB;
-  --accent-color: #E1AC59;
+  --dark-color: #181E26;
+  --medium-color: #062267;
+  --light-color: #6986CF;
+  --accent-color: #ED6E00;
 }
 
 body {
   margin: 0;
   padding: 0;
+  transition-duration: 1s;
 }
 
 h1 {
-  font-size: 82px;
+  font-size: 6vw;
 }
 
 h2 {
@@ -25,7 +26,28 @@ h2 {
 }
 
 h3 {
-  font-size: 32px;
+  font-size: 3vw;
+}
+
+.btn-scroll-icon {
+  width: 60px;
+  transition: 0.2s;
+  transform: translate(-50%, 0);
+}
+
+.btn-scroll-icon:hover {
+  width: 65px;
+}
+
+.btn-scroll {
+  position: absolute;
+  left: 50%;
+  bottom: 7%;
+  cursor: pointer;
+}
+
+.logo-site {
+  width: 10vw;
 }
 
 #app {
@@ -97,68 +119,86 @@ html {
 
 .hero {
   position: relative;
-  background: url("./hero-background.png");
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(217, 202, 173, 0.2), var(--medium-color)), url("./assets/marryme.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+}
+
+.hero-text {
+  position: absolute;
+  top: 12%;
+  left: 15vw;
+  display: flex;
+  flex-direction: column;
+  width: 60vw;
+  line-height: 9vw;
+}
+
+.btn-accent {
+  width: 30vw;
+  height: 8vw;
+  font-size: 4vw;
+  border-radius: 10px;
+  border: none;
+  font-weight: bold;
+  color: white;
+  background-color: var(--accent-color);
+  cursor: pointer;
+  text-decoration: none;
+  text-align: center;
+}
+
+.btn-accent:hover {
+  color: var(--medium-color);
+}
+
+.showcase {
+  /* display: flex; */
+  /* align-items: center; */
+  position: relative;
+  height: 300vh;
+  /* justify-content: center; */
+  background-color: var(--medium-color);
+  background-image: url('./assets/blob3.png');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
 }
 
-.hero-text {
-  position: absolute;
-  top: 20%;
-  left: 20%;
-  display: flex;
-  flex-direction: column;
-  width: 600px;
-}
-
-.btn-accent {
-  width: 400px;
-  height: 70px;
-  font-size: 48px;
-  border-radius: 200px;
-  border: none;
-  font-weight: bold;
-  color: var(--medium-color);
-  background-color: var(--accent-color);
-  cursor: pointer;
-}
-
-.showcase {
-  display: flex;
-  /* align-items: center; */
-  justify-content: center; /* Center horizontally */
-}
-
 .showcase-infos {
-  width: 50%;
+  width: 100%;
+}
+
+.showcase-info p {
+  font-size: 1.4vw;
 }
 
 .showcase-info {
-  background: var(--light-color);
-  color: var(--dark-color);
-  border-radius: 20px;
-  width: 400px;
-  height: 400px;
-  text-align: left;
+  color: var(--light-color);
   padding: 0 20px 0 20px;
+  font-size: 24px;
+  text-align: center;
 }
 
 .showcase-info-title {
-  color: var(--medium-color);
+  color: white;
 }
 
 .showcase-info-image {
-  width: 50%;
+  width: 80%;
 }
 
 .container-showcase-info {
   height: 100vh;
   text-align: center;
   display: flex;
-  justify-content: center;
+  justify-content: left;
   align-items: center;
   scroll-snap-align: center;
+  padding-left: 100px;
+  width: 50%;
 }
 
 .container-showcase-image {
@@ -166,12 +206,24 @@ html {
   justify-content: center;
   align-items: center;
   height: 100vh;
-  width: 50%;
+  width: 40%;
+  position: absolute;
+  top: 0px;
+  right: 20px;
+  height: 100vh;
 }
 
 .container-showcase-image img {
-  width: 70%;
+  width: 80%;
   border-radius: 20px;
+}
+
+.app-overview {
+  background-color: var(--medium-color);
+  background-image: url('./assets/background-overview.png');
+  background-repeat: no-repeat;
+  background-size: fit;
+  background-position: center;
 }
 
 .plane-image {
@@ -188,14 +240,12 @@ html {
   flex-direction: column;
   align-items: center; /* Center vertically */
   justify-content: center; /* Center horizontally */
-  height: 90vh;
 }
 
 .container-displays {
-  max-width: 1200px;
   margin: 0 auto;
-  padding: 0 20px 0 20px;
-  height: 800px; /* Set your fixed height for the container */
+  padding: 0 30px 0 30px;
+  height: 70vh; /* Set your fixed height for the container */
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(3, 1fr);
@@ -205,7 +255,6 @@ html {
 .grid-item {
   position: relative;
   overflow: hidden;
-  background-color: #ddd;
   border: none;
   box-sizing: border-box;
 }
@@ -214,19 +263,25 @@ html {
   width: 100%;
   height: 100%;
   object-fit: cover; /* This ensures the image covers the entire container */
-  display: block;
 }
 
 .image-app {
-  width: 80vw;
-  max-height: 80vh;
+  max-height: 70vh;
+  border: 2px solid;
+  border-radius: 10px;
+  border-color: var(--accent-color);
 }
 
 .display-info {
-  color: var(--light-color);
+  color: white;
   position: absolute;
   bottom: 10px;
   left: 10px;
+}
+
+.projection-location {
+  font-weight: bold;
+  color: var(--light-color);
 }
 
 .contact {
@@ -251,6 +306,12 @@ html {
   width: 40%;
   padding: 20px 0 20px 0;
   background: var(--medium-color);
+}
+
+.logo-site-form {
+  width: 15vw;
+  margin: 0 auto 0 auto;
+  margin-bottom: 40px;
 }
 
 .form-contact {
@@ -286,9 +347,14 @@ textarea {
   border-radius: 10px;
   border: none;
   background: var(--accent-color);
-  color: var(--medium-color);
+  color: white;
   font-weight: bold;
   font-size: 24px;
+  cursor: pointer;
+}
+
+.btn-submit:hover {
+  color: var(--medium-color);
 }
 
 .form-info {
@@ -317,9 +383,23 @@ textarea {
   display: none;
 }
 
+.footer {
+  text-align: center;
+  padding: 20px 0 20px 0;
+  scroll-snap-align: center;
+}
+
 /* MEDIA QUERIES */
 
 @media (max-width: 768px) { 
+  .logo-site-form {
+    display: none;
+  }
+
+  .btn-scroll {
+    display: none;
+  }
+
   h1 {
     font-size: 48px;
   }
@@ -332,9 +412,14 @@ textarea {
     font-size: 24px;
   }
 
+  .logo-site {
+    width: 30vw;
+  }
+
   .btn-accent {
     font-size: 24px;
     width: 60vw;
+    height: 80px;
     margin: auto;
   }
 
@@ -359,10 +444,15 @@ textarea {
 
   .showcase {
     display: none;
+    height: initial;
   }
 
   .showcase-info-image {
-    width: 25%;
+    width: 60%;
+  }
+
+  .live-displays {
+    height: initial;
   }
 
   .showcase-mobile {
@@ -380,9 +470,32 @@ textarea {
   }
 
   .container-displays {
+    height: initial;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(4, 1fr);
     gap: 5px; /* Adjust the gap between grid items */
+  }
+
+  .container-showcase-info {
+    scroll-snap-align: initial;
+  }
+
+  .app-overview {
+    margin-bottom: 8vh;
+  }
+
+  .image-app {
+    max-height: initial;
+    max-width: 90%;
+  }
+
+  .footer {
+    scroll-snap-align: initial;
+  }
+
+  .section {
+    height: initial;
+    scroll-snap-align: initial;
   }
 
   .form-section {
@@ -407,9 +520,22 @@ textarea {
   }
 
   .showcase-info {
-    width: 70%;
-    height: 30vh;
-    margin: auto;
+    width: initial;
+    height: initial;
+    color: white;
+    font-size: 16px;
   }
 
+  .showcase-info h3 {
+    color: var(--light-color);
+  }
+
+}
+
+@media (max-width: 480px) { 
+  .container-displays {
+    height: initial;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 20px; /* Adjust the gap between grid items */
+  }
 }
