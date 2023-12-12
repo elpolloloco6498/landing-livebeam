@@ -7,7 +7,7 @@
     "dev": "vite",
     "predeploy": "npm run build",
     "build": "vite build",
-    "deploy": "touch ./dist/.nojekyll && gh-pages -d dist -t true",
+    "deploy": "touch ./dist/.nojekyll && gh-pages -d dist",
     "preview": "vite preview"
   },
   "devDependencies": {
